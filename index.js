@@ -2,14 +2,14 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 
-//New client
-const client = new Discord.Client();
-
 //The bot connects using the configuration file
 const settings = require ("./config/bot.json")
 
 //Create a new Player
 const { Player } = require("discord-player")
+
+//New client
+const client = new Discord.Client();
 
 //To easily access the player
 const player = new Player(client)
@@ -42,4 +42,4 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 //Login
-client.login(settings.token_bot);
+client.login(settings.token);

@@ -3,11 +3,15 @@ const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
 
-    //If the member is not in a voice channel
-    if(!message.member.voice.channel) return message.channel.send(`You're not in a voice channel ${emotes.error}`);
+    //console.log(client)
+    //console.log(message.member.voice.channel)
+    //console.log(client.player.musicChannel)
+
+    //Check for dedicated voice channel
+    if(!client.player.musicChannel) return message.channel.send(`You haven't setup a deciated voice channel yet, please do so in the configuration... ${emotes.error}`);
 
     //If no music is provided
-    if (!args[0]) return message.channel.send(`Please enter a music ${emotes.error}`);
+    if (!args[0]) return message.channel.send(`Did you want to play something? ${emotes.error}`);
 
     const aTrackIsAlreadyPlaying = client.player.isPlaying(message.guild.id);
 
@@ -27,7 +31,7 @@ exports.run = async (client, message, args) => {
         } else {
 
             // Else, play the song
-            const result = await client.player.play(message.member.voice.channel, args.join(" ")).catch(() => {});
+            const result = await client.player.play(client.player.musicChannel, args.join(" ")).catch(() => {});
             if(!result) return message.channel.send(`This song provider is not supported...`);
 
             if(result.type === 'playlist'){

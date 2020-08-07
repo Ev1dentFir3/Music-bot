@@ -1,7 +1,7 @@
 {
-    "prefix": "PREFIX",
-
-    "game": "GAME",
-    
-    "token_bot": "TOKEN"
+    "prefix": "-",
+    "game": "Ready to play some music!",
+    "token": "NzM5NDIwODkxNzg3NjkwMDQ1.XyaNXg.uZpD9n0_swAgDCMgMPUkIUapWrc",
+    "musicChannel": "622139905845493764",
+    "chatBotID": "739371800189730817"
 }

@@ -3,12 +3,12 @@ const config = require(`../config/bot.json`)
 module.exports = (client, message) => {
 
     //Ignore all bots
-    if (message.author.bot) return;
+    if (message.author.bot && message.author.id != config.chatBotID) return;
 
     //Prefix
     let prefix = config.prefix
 
-    //Ignore messages not starting with the prefix (in config.json)
+    //Ignore messages not starting with the prefix (in config.json)6
     if (message.content.indexOf(prefix) !== 0) return;
   
     //Our standard argument/command name definition.

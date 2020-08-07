@@ -3,8 +3,8 @@ const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
 
-    //If the member is not in a voice channel
-    if(!message.member.voice.channel) return message.channel.send(`You're not in a voice channel ${emotes.error}`);
+    //Check for dedicated voice channel
+    if(!client.player.musicChannel) return message.channel.send(`You haven't setup a deciated voice channel yet, please do so in the configuration... ${emotes.error}`);
 
     //Get song
     const song = await client.player.resume(message.guild.id);
